@@ -29,7 +29,7 @@
 			if(location.hash != "") codiad.deepLinking.hashChanged();
 			//sync the hash on the viewed elements
 			$('a.file, a.directory').live('dblclick', codiad.deepLinking.updateHash);
-			$('#tab-list-active-files a.label').live('click', codiad.deepLinking.updateHash);
+			$('#tab-list-active-files a.label, #dropdown-list-active-files a.label').live('click', codiad.deepLinking.updateHash);
         },
 		updateHash: function(event)
 		{
@@ -38,6 +38,7 @@
 			pathAttr = 'data-path';
 			if ($(elem).parents('#file-manager').length == 0)
 			{
+				elem = $('#tab-list-active-files .active a').get(0);
 				pathAttr = 'title';
 			}
 			location.hash = '#' + $(elem).attr(pathAttr).replace($(elem).attr(pathAttr).split('/')[0], $('#project-list li[ondblclick$="' + $(elem).attr(pathAttr).split('/')[0] + '\');"]').text());
