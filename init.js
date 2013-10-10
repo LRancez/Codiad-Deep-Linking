@@ -29,7 +29,7 @@
 			if(location.hash != "") codiad.deepLinking.hashChanged();
 			//sync the hash on the viewed elements
 			$('a.file, a.directory').live('dblclick', codiad.deepLinking.updateHash);
-			$('#tab-list-active-files a.label, #dropdown-list-active-files a.label').live('click', codiad.deepLinking.updateHash);
+			$('#tab-list-active-files a.label, #tab-list-active-files a.close, #dropdown-list-active-files li>a, #dropdown-list-active-files span.label').live('click', codiad.deepLinking.updateHash);
         },
 		updateHash: function(event)
 		{
