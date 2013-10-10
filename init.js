@@ -21,7 +21,7 @@
 		currFolders: [],
 		loadedIndex: 0,
 		pathLoadingInterval: 0,
-		safetyBreak: 100, //prevent infinite loops
+		safetyBreak: 30, //prevent infinite loops
 		
         init: function() {
 			//set event and move to path if the hash is already set.
@@ -56,7 +56,7 @@
 					//reset vars
 					codiad.deepLinking.currFolders = codiad.deepLinking.fullPath.split('/');
 					codiad.deepLinking.parents = '#project-root';
-					codiad.deepLinking.safetyBreak = 100;
+					codiad.deepLinking.safetyBreak = 30;
 					codiad.deepLinking.loadedIndex = 0;
 					//start loading path
 					codiad.deepLinking.pathLoadingInterval = setInterval(codiad.deepLinking.loadPath, 500);
