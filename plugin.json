@@ -2,5 +2,6 @@
     "author": "Lucas Rancez",
     "version": "0.9",
     "name": "Deep Linking",
+    "description" : "This plugin enables to do deep linking in the Codiad web IDE.",
     "url": "https://github.com/LRancez/Codiad-Deep-Linking.git"
 }]
