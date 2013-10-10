@@ -52,7 +52,7 @@
 				if(codiad.deepLinking.fullPath != "")
 				{
 					$('#modal-overlay').show();
-					clearInterval(codiad.deepLinking.pathLoadingInterval);
+					clearTimeout(codiad.deepLinking.pathLoadingInterval);
 					//reset vars
 					codiad.deepLinking.currFolders = codiad.deepLinking.fullPath.split('/');
 					codiad.deepLinking.parents = '#project-root';
@@ -69,7 +69,7 @@
 			// chech if the path if fully loaded or if we need to break
 			if (codiad.deepLinking.safetyBreak<0 || codiad.deepLinking.loadedIndex == codiad.deepLinking.currFolders.length)
 			{
-				clearInterval(codiad.deepLinking.pathLoadingInterval);
+				clearTimeout(codiad.deepLinking.pathLoadingInterval);
 				$('#modal-overlay').hide();
 				return;
 			}
@@ -118,6 +118,14 @@
 					{
 						currParent.parent().children('span').click();
 					}
+					else
+					{
+						//move the index level of the path
+						codiad.deepLinking.loadedIndex = codiad.deepLinking.loadedIndex + 1;
+						codiad.deepLinking.safetyBreak = 20;						
+						codiad.deepLinking.loadPath();
+						return;
+					}
 				}
 				else
 				{
@@ -129,6 +137,7 @@
 			//move the index level of the path
 			codiad.deepLinking.loadedIndex = codiad.deepLinking.loadedIndex + 1;
 			codiad.deepLinking.safetyBreak = 20;
+			codiad.deepLinking.pathLoadingInterval = setTimeout(codiad.deepLinking.loadPath, 500);
 		}
 
     };
