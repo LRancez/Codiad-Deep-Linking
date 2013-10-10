@@ -1,6 +1,6 @@
 # Codiad Deep Linking
 
-This plugin enables to do deep linking in the Codiad IDE.
+This plugin allows to do deep linking in the Codiad IDE.
 http://en.wikipedia.org/wiki/Deep_linking
 
 * `init.js` initializes your plugin into the system
