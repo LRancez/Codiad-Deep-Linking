@@ -41,7 +41,7 @@
 				projectPath = $('.context-menu-active').attr('data-path').split('/')[0];
 				activeProject = $('#project-list li[ondblclick$="' + projectPath + '\');"]').text();
 				activePath = $('.context-menu-active').attr('data-path').replace(projectPath, activeProject);
-				codiad.modal.load(450, path.replace('/init.js', '') + '/dialog.php?path=' + escape(location.protocol + '//' + location.host + '#' + activePath));
+				codiad.modal.load(450, path.replace('/init.js', '') + '/dialog.php?path=' + escape(location.protocol + '//' + location.host + '/#' + activePath));
 			}
 		},
 		updateHash: function(event)
