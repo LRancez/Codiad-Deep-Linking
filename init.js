@@ -1,5 +1,5 @@
 /*
- *  Version 0.9.1
+ *  Version 0.10.0
  *  Based on https://github.com/Codiad/Codiad/issues/360
  */
 
@@ -34,6 +34,16 @@
 				location.hash = "";
 			});
         },
+		popupPath: function()
+		{
+			if($('.context-menu-active').length > 0)
+			{
+				projectPath = $('.context-menu-active').attr('data-path').split('/')[0];
+				activeProject = $('#project-list li[ondblclick$="' + projectPath + '\');"]').text();
+				activePath = $('.context-menu-active').attr('data-path').replace(projectPath, activeProject);
+				codiad.modal.load(450, path.replace('/init.js', '') + '/dialog.php?path=' + escape(location.protocol + '//' + location.host + '#' + activePath));
+			}
+		},
 		updateHash: function(event)
 		{
 			elem = event.currentTarget;
