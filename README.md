@@ -8,5 +8,5 @@ http://en.wikipedia.org/wiki/Deep_linking
 
 This pluging does not need configuration and it should work on most browsers.
 
-This plugin you will be able to navigate the Codiad tree using something like this in the address bar:
+Whit this plugin you will be able to navigate the Codiad tree using something like this in the address bar:
 http://codiad.server/#awesome/path/to/file.html
