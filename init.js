@@ -1,5 +1,5 @@
 /*
- *  Version 0.10.1
+ *  Version 0.11
  *  Based on https://github.com/Codiad/Codiad/issues/360
  */
 
@@ -38,7 +38,7 @@
 		{
 			if($('.context-menu-active').length > 0)
 			{
-				projectPath = $('.context-menu-active').attr('data-path').split('/')[0];
+				projectPath = $('#project-root').data('path');
 				activeProject = $('#project-list li[ondblclick$="' + projectPath + '\');"]').text();
 				activePath = $('.context-menu-active').attr('data-path').replace(projectPath, activeProject);
 				codiad.modal.load(450, path.replace('/init.js', '') + '/dialog.php?path=' + escape(location.protocol + '//' + location.host + location.pathname + '#' + activePath));
@@ -56,7 +56,26 @@
 			}
 			if($(elem).length > 0)
 			{
-				location.hash = '#' + $(elem).attr(pathAttr).replace($(elem).attr(pathAttr).split('/')[0], $('#project-list li[ondblclick$="' + $(elem).attr(pathAttr).split('/')[0] + '\');"]').text());
+				activePath = $(elem).attr(pathAttr).split('/');
+				projectPath = activePath[0];
+				if (projectPath == '')
+				{
+					for(i=1; i<activePath.length; i++)
+					{
+						projectPath = projectPath + '/' + activePath[i];
+						activeProj = $('#project-list li[ondblclick$="' + projectPath + '\');"]');
+						if (activeProj.length > 0)
+						{
+							break;
+						}
+					}
+				}
+				else
+				{
+					activeProj = $('#project-list li[ondblclick$="' + projectPath + '\');"]');
+				}
+
+				location.hash = '#' + $(elem).attr(pathAttr).replace(projectPath, activeProj.text());
 			}
 			setTimeout(function(){
 				if($('#tab-list-active-files .active a').length == 0)
