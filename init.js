@@ -1,5 +1,5 @@
 /*
- *  Version 0.10.0
+ *  Version 0.10.1
  *  Based on https://github.com/Codiad/Codiad/issues/360
  */
 
@@ -41,7 +41,7 @@
 				projectPath = $('.context-menu-active').attr('data-path').split('/')[0];
 				activeProject = $('#project-list li[ondblclick$="' + projectPath + '\');"]').text();
 				activePath = $('.context-menu-active').attr('data-path').replace(projectPath, activeProject);
-				codiad.modal.load(450, path.replace('/init.js', '') + '/dialog.php?path=' + escape(location.protocol + '//' + location.host + '/#' + activePath));
+				codiad.modal.load(450, path.replace('/init.js', '') + '/dialog.php?path=' + escape(location.protocol + '//' + location.host + location.pathname + '#' + activePath));
 			}
 		},
 		updateHash: function(event)
