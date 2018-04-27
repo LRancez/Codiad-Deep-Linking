@@ -95,7 +95,9 @@
 					$('#modal-overlay').show();
 					clearTimeout(codiad.deepLinking.pathLoadingInterval);
 					//reset vars
-					codiad.deepLinking.currFolders = codiad.deepLinking.fullPath.split('/');
+					codiad.deepLinking.currFolders = codiad.deepLinking.fullPath.split('/').map(function (token) {
+						return decodeURIComponent(token);
+					});
 					codiad.deepLinking.parents = '#project-root';
 					codiad.deepLinking.safetyBreak = 20;
 					codiad.deepLinking.loadedIndex = 0;
